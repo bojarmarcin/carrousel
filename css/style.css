@@ -1,18 +1,41 @@
-#carrousel {
-  width: 400px;
-  height: 400px;
-  margin: 0 auto;
-  border-style: solid;
-  overflow: hidden;
+*, *:before, *:after {
+  box-sizing: border-box;
 }
-ul {
-  width: 2000px;
-  list-style-type: none;
+
+body {
+  background: #d9d8c6;
 }
+
 li {
   list-style: none;
+}
+
+.carrousel-container {
+  background: #5b5a5c;
+  padding: .2em;
+  max-width: 2000px;
+  margin: 5em auto;
+  box-shadow: 3px 3px 0px #353435;
+  border: 2px solid #353435;
+  border-radius: 5px;
+}
+
+.carrousel-slider-wrap {
+  overflow: hidden;
+  margin: 1em;
+}
+
+.carrousel-slider-group:before, .carrousel-slider-group:after {
+  content: " ";
+  display: table;
+}
+.carrousel-slider-group:after {
+  clear: both;
+}
+
+.carrousel-slide {
   float: left;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
+  position: relative;
+  margin-left: 0;
+  padding-right: 8px;
 }
