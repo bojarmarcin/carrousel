@@ -1,7 +1,7 @@
 $.fn.carrousel = function(options) {
   var settings = $.extend({
-      'transitionSpeed': 3000,
-      'snap': false
+    'transitionSpeed': 3000,
+    'snap': false
   }, options);
 
 var $this = $(this);
@@ -25,36 +25,36 @@ $wrap.height(slideHeight);
 $wrap.wrap('<div class="carrousel-container"></div>');
 
 if (!$group.find($firstEl).hasClass("carrousel-first")) {
-    $group.find($firstEl).addClass("carrousel-first");
+  $group.find($firstEl).addClass("carrousel-first");
 }
 
 var transitionSnap = function() {
-    var $firstEl = $group.find('.carrousel-first').html();
-    $group.find('.carrousel-first').animate({
-      'margin-left': '-' + slideWidth + 'px'
-    }, function(){
-     $group.append('<li class="carrousel-slide">' + $firstEl + '</li>');
-     $(this).remove();
-     $group.find('li:first').addClass("carrousel-first");
-    });
-  };
+  var $firstEl = $group.find('.carrousel-first').html();
+  $group.find('.carrousel-first').animate({
+    'margin-left': '-' + slideWidth + 'px'
+  }, function(){
+    $group.append('<li class="carrousel-slide">' + $firstEl + '</li>');
+    $(this).remove();
+    $group.find('li:first').addClass("carrousel-first");
+  });
+};
 
 var transitionScroll = function() {
      var $firstEl = $group.find('.carrousel-first').html();
     $group.find('.carrousel-first').animate({
       'margin-left': '-' + slideWidth + 'px'
     }, settings.transitionSpeed, 'linear', function(){
-     $group.append('<li class="carrousel-slide">' + $firstEl + '</li>');
-     $(this).remove();
-     $group.find('li:first').addClass("carrousel-first");
-     transitionScroll();
+      $group.append('<li class="carrousel-slide">' + $firstEl + '</li>');
+      $(this).remove();
+      $group.find('li:first').addClass("carrousel-first");
+      transitionScroll();
     });
-  };
+};
 
 if (settings.snap) {
-    window.setInterval(transitionSnap, settings.transitionSpeed);
-  } else {
-    transitionScroll();
+  window.setInterval(transitionSnap, settings.transitionSpeed);
+} else {
+  transitionScroll();
   }
 }
 
