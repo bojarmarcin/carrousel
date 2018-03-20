@@ -33,9 +33,9 @@ var transitionSnap = function() {
   $group.find('.carrousel-first').animate({
     'margin-left': '-' + slideWidth + 'px'
   }, function(){
-    $group.append('<li class="carrousel-slide">' + $firstEl + '</li>');
-    $(this).remove();
-    $group.find('li:first').addClass("carrousel-first");
+      $group.append('<li class="carrousel-slide">' + $firstEl + '</li>');
+      $(this).remove();
+      $group.find('li:first').addClass("carrousel-first");
   });
 };
 
@@ -44,10 +44,10 @@ var transitionScroll = function() {
     $group.find('.carrousel-first').animate({
       'margin-left': '-' + slideWidth + 'px'
     }, settings.transitionSpeed, 'linear', function(){
-      $group.append('<li class="carrousel-slide">' + $firstEl + '</li>');
-      $(this).remove();
-      $group.find('li:first').addClass("carrousel-first");
-      transitionScroll();
+        $group.append('<li class="carrousel-slide">' + $firstEl + '</li>');
+        $(this).remove();
+        $group.find('li:first').addClass("carrousel-first");
+        transitionScroll();
     });
 };
 
